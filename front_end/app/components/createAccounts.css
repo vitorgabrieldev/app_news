@@ -1,0 +1,107 @@
+body, html
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    background: #e4d7c3;
+}
+
+/* ================ Container Main ================ */
+.formContainer
+{
+    background: #fefefe;
+    position: absolute;
+    width: 80%;
+    height: 85%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.form
+{
+    padding: 2rem;
+    width: 60%;
+}
+
+.titleForm
+{
+    font-size: 3rem;
+    color: rgb(56, 55, 55);
+}
+
+.labelForm
+{
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgb(98, 98, 98);
+}
+
+.form input[type=text],
+.form input[type=password]
+{
+    width: 85%;
+    padding: .5rem;
+    border: #444341 .01rem solid;
+    outline: none;
+}
+
+.msgPassword
+{
+    color: #f00;
+    font-size: .8rem;
+}
+
+#repeat_password
+{
+    border: #f00 .01rem solid;
+}
+
+.containerSubmitForm
+{
+    background: #977365;
+    color: #fefefe;
+    border: none;
+    width: 50%;
+    padding: .9rem 4rem .9rem 3rem;
+    font-size: 1.5rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.containerSubmitForm:hover > i {
+    transform: translateX(125%);
+}
+
+.containerSubmitForm i
+{
+    font-size: 1.4rem;
+    transition: .3s;
+}
+.createAccountsBTN
+{
+    all: unset;
+}
+.redirectEnter
+{
+    background: #444341;
+    width: 40%;
+    height: 100%;
+    display: block;
+    padding: 2rem;
+}
+
+.titleForm2
+{
+    color: #e0e0e0;
+    font-size: 1.7rem;
+}
