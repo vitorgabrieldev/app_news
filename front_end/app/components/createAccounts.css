@@ -46,7 +46,7 @@ body, html
 .form input[type=text],
 .form input[type=password]
 {
-    width: 85%;
+    width: 100%;
     padding: .5rem;
     border: #444341 .01rem solid;
     outline: none;
@@ -104,4 +104,38 @@ body, html
 {
     color: #e0e0e0;
     font-size: 1.7rem;
+}
+.responsiveBTNredirect
+{
+    display: none;
+}
+/*==== Medias querys ==== */
+
+@media screen and (max-width: 600px){
+    .redirectEnter
+    {
+        display: none;
+    }
+    .containerSubmitForm
+    {
+        width: 100%;
+    }
+    .responsiveBTNredirect
+    {
+        display: block;
+    }
+
+    .formContainer
+    {
+        height: 95%;
+    }
+    .containerSubmitForm
+    {
+        margin: .5rem;
+    }
+
+    .form
+    {
+        width: 100%;
+    }
 }
