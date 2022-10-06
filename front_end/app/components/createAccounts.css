@@ -56,11 +56,8 @@ body, html
 {
     color: #f00;
     font-size: .8rem;
-}
 
-#repeat_password
-{
-    border: #f00 .01rem solid;
+    display: none;
 }
 
 .containerSubmitForm
