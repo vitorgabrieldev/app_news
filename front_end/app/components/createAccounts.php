@@ -27,13 +27,22 @@
     <!-- ========================== Style sheets ========================== -->
     <link rel="stylesheet" href="./createAccounts.css">
 
+
+    <style>
+        .msg_alert
+        {
+            font-size: 1rem;
+            font-family: monospace;
+            margin: 1.5rem;
+        }
+    </style>
     
 </head>
 <body>
     <!-- Components -->
 
     <section class="formContainer">
-        <form action="redirectNewAccount.php" method="POST" class="form">
+        <form action="../../../back_end/public/redirectNewAccount.php" method="POST" class="form">
             <h1 class="titleForm">Login</h1>
             <br>
             <label class="labelForm" for="username">Username</label>
@@ -52,6 +61,10 @@
             <div  id="createAccounts">
                 <input value="Criar" type="submit" name="submit" class="containerSubmitForm">
             </div>
+            <p class="msg_alert">
+                Username deve conter até 8 digitos ! <br>
+                Senha deve conter 8 ou mais digitos !
+            </p>
             <div class="containerSubmitForm responsiveBTNredirect">
                 <button type="button" class="createAccountsBTN">Entrar</button>
                 <i class='bx bx-right-arrow-alt'></i>

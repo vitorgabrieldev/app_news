@@ -7,10 +7,10 @@
         exit();
     };
 
-    if(strlen($_POST['username']) >= 6 && strlen($_POST['password']) >= 8 && strlen($_POST['email']) >= 6) {
+    if(strlen($_POST['username']) >= 3 && strlen($_POST['username']) <= 6 && strlen($_POST['password']) >= 8 && strlen($_POST['email']) >= 6) {
         insertToDatabase();
     } else {
-        header('LOCATION: createAccounts.php');
+        header('LOCATION: ../../front_end/app/components/createAccounts.php');
     };
 
     function insertToDatabase() {
@@ -19,7 +19,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        include('configUsers.php');
+        include('../private/configUsers.php');
 
         $query = mysqli_query($mysqli,"INSERT INTO users(nome, email, senha)VALUES('$username', '$email', '$password')");
 
@@ -36,7 +36,7 @@
         $_SESSION['emailUser'] = $_POST['email'];
         $_SESSION['passwordUser'] = $_POST['password'];
 
-        header("LOCATION: ../feedAccounts.php");
+        header("LOCATION: ../../front_end/app/feedAccounts.php");
     };
 
 ?>

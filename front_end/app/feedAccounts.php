@@ -1,5 +1,5 @@
 <?php
-    include('components/protect.php');
+    include('../../back_end/private/protect.php');
 ?>
 
 
@@ -83,7 +83,7 @@
                             echo "<h1 class='usernameSession' style='font-family: momospace; font-size: 1.1rem'>".$_SESSION['nomeUser']."</h1>";
                         ?>
                     </div>
-                    <a class="btn btn-outline-secondary ms-1" href="./components/logout.php">Sair</a>
+                    <a class="btn btn-outline-secondary ms-1" href="../../back_end/private/logout.php">Sair</a>
                 </div>
             </div>
         </header>

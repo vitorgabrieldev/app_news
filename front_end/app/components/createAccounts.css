@@ -85,10 +85,10 @@ body, html
     font-size: 1.4rem;
     transition: .3s;
 }
-/* .createAccountsBTN
+.createAccountsBTN
 {
     all: unset;
-} */
+}
 .redirectEnter
 {
     background: #444341;
