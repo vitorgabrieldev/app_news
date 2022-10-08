@@ -1,3 +1,32 @@
+<?php
+
+
+    if(isset($_POST['submit']))
+    {
+
+        include('configUsers.php');
+
+        if(strlen($_POST['username']) >= 8 && strlen($_POST['email']) >= 8) {
+            if (strlen($_POST['password']) >= 8 && $_POST['password'] === $_POST['repeat_password']) {
+                
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+                $result = mysqli_query($mysqli, "INSERT INTO users(nome, email, senha) VALUES ('$username','$email', '$password')");
+    
+                
+
+            }
+        };
+    
+    
+    };
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,7 +60,7 @@
     <!-- Components -->
 
     <section class="formContainer">
-        <form action="createAccounts.html" method="" class="form">
+        <form action="createAccounts.php" method="POST" class="form">
             <h1 class="titleForm">Login</h1>
             <br>
             <label class="labelForm" for="username">Username</label>
@@ -44,20 +73,20 @@
             <br>
             <label class="labelForm" for="Password">Password</label>
             <br>
-            <input type="password" name="Password" id="Password1" placeholder="Your Password" spellcheck="false">
+            <input type="password" name="password" id="Password1" placeholder="Your Password" spellcheck="false">
             <br>
             <label class="labelForm" for="repeat_password">repeat password</label>
             <br>
             <input type="password" name="repeat_password" id="repeatPassword" placeholder="repeat password" spellcheck="false">
             <br>
-            <h4 class="msgPassword">
+            <!-- <h4 class="msgPassword">
                 <i class='bx bxs-message-square-error'></i>
                 As senha devem ser iguais!
-            </h4>
+            </h4> -->
             <br>
 
             <div  id="createAccounts" class="containerSubmitForm">
-                <button type="button" class="createAccountsBTN">Criar</button>
+                <input value="Criar" type="submit" name="submit" class="createAccountsBTN">
                 <i class='bx bx-right-arrow-alt'></i>
             </div>
             <div class="containerSubmitForm responsiveBTNredirect">
