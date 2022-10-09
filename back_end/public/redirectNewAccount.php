@@ -1,4 +1,6 @@
 <?php
+    
+    include('../private/configUsers.php');
 
 
 
@@ -7,37 +9,43 @@
         exit();
     };
 
-    if(strlen($_POST['username']) >= 3 && strlen($_POST['username']) <= 6 && strlen($_POST['password']) >= 8 && strlen($_POST['email']) >= 6) {
-        insertToDatabase();
+    
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $password = $mysqli->real_escape_string($_POST['password']);
+
+    $sql_code = "SELECT * FROM users WHERE email = '$email' AND senha = '$password'";
+    $sql_query = $mysqli->query($sql_code) OR die("Falha na execução da query" . $mysqli->error);
+
+    $qtdUsers = $sql_query->num_rows;
+
+    if($qtdUsers >= 1) {
+        header("LOCATION: ../../front_end/app/components/createAccounts.php");
     } else {
-        header('LOCATION: ../../front_end/app/components/createAccounts.php');
-    };
+        if(strlen($_POST['username']) > 0 && strlen($_POST['username']) <= 12 && strlen($_POST['password']) >= 4 && strlen($_POST['email']) >= 6) {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
 
-    function insertToDatabase() {
+            include('../private/configUsers.php');
+
         
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        include('../private/configUsers.php');
-
-        $query = mysqli_query($mysqli,"INSERT INTO users(nome, email, senha)VALUES('$username', '$email', '$password')");
-
-        startEnterSession();
-
-    };
-
-    function startEnterSession() {
-        if(!isset($_SESSION)) { 
-            session_start();
+            $query = mysqli_query($mysqli,"INSERT INTO users(nome, email, senha)VALUES('$username', '$email', '$password')");
+    
+            if(!isset($_SESSION)) { 
+                session_start();
+            };
+    
+            $_SESSION['nomeUser'] = $_POST['username'];
+            $_SESSION['emailUser'] = $_POST['email'];
+            $_SESSION['passwordUser'] = $_POST['password'];
+    
+            header("LOCATION: ../../front_end/app/feedAccounts.php");
+        } else {
+            header('LOCATION: ../../front_end/app/components/createAccounts.php');
         };
-
-        $_SESSION['nomeUser'] = $_POST['username'];
-        $_SESSION['emailUser'] = $_POST['email'];
-        $_SESSION['passwordUser'] = $_POST['password'];
-
-        header("LOCATION: ../../front_end/app/feedAccounts.php");
     };
+
+    
 
 ?>
 
